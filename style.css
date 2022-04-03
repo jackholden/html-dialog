@@ -1,0 +1,52 @@
+body {
+  margin: 0;
+  font-size: 1.3125rem;
+  line-height: 1.6;
+  background-color: aliceblue;
+  font-family: sans-serif;
+}
+
+ul {
+  list-style: none;
+}
+
+.wrapper {
+  display: grid;
+  grid-template-rows: auto 1fr auto;
+  min-height: 100vh;
+  max-width: 1540px;
+  width: 100%;
+  margin: 0 auto;
+  background-color: white;
+  box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.15);
+}
+
+.dialog {
+  max-width: 60ch;
+  border-color: aquamarine;
+  border-radius: 20px;
+}
+
+.dialog-small {
+  max-width: 20ch;
+}
+
+.dialog-fullscreen {
+  max-width: revert;
+  max-height: 100%;
+  width: 100%;
+  height: initial;
+  /* margin: 0; */
+  margin-left: 0;
+  margin-right: 0;
+  border-radius: 0;
+}
+
+.dialog > * {
+  margin: 0 0 0.5rem 0;
+}
+
+.dialog::backdrop {
+  background: rgba(149, 41, 41, 0.4);
+  cursor: pointer;
+}

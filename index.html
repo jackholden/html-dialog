@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>HTML Dialog experiment</title>
+
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="wrapper">
+      <header class="navigation">Header</header>
+      <main>
+        Main
+        <div align="center">
+          <ul>
+            <li>
+              Simple usage of HTML
+              <pre>dialog</pre>
+            </li>
+          </ul>
+          <button class="open-dialog1">+ Dialog default browser</button>
+          <button class="open-dialog2">+ Dialog custom small</button>
+          <button class="open-dialog3">+ Dialog custom fullscreen</button>
+        </div>
+      </main>
+      <footer>Footer</footer>
+
+      <!-- Modal starts here -->
+      <dialog id="dialog1">
+        <h2>A standard unstyled default browser modal</h2>
+        <button class="button close-dialog1">Close dialog</button>
+        <p>Enter your <b>email</b> and <em>Authy</em> generated code:</p>
+        <form method="dialog">
+          <label>Email <input type="email" autofocus /></label>
+          <label>Authy Auth code <input type="text" /></label>
+          <button type="submit">Authorise</button>
+        </form>
+      </dialog>
+
+      <!-- Modal standard style starts here -->
+      <dialog class="dialog" id="dialog2">
+        <h2>A styled browser modal</h2>
+        <button class="button close-dialog2">Close dialog</button>
+        <p>Enter your <b>email</b> and <em>Authy</em> generated code:</p>
+        <form method="dialog">
+          <label>Email <input type="email" autofocus /></label>
+          <label>Authy Auth code <input type="text" /></label>
+          <button type="submit">Authorise</button>
+        </form>
+      </dialog>
+
+      <!-- Modal standard style starts here -->
+      <dialog class="dialog dialog-fullscreen" id="dialog3">
+        <h2>A styled fullscreen browser modal</h2>
+        <button class="button close-dialog3">Close dialog</button>
+        <p>Enter your <b>email</b> and <em>Authy</em> generated code:</p>
+        <form method="dialog">
+          <label>Email <input type="email" autofocus /></label>
+          <label>Authy Auth code <input type="text" /></label>
+          <button type="submit">Authorise</button>
+        </form>
+      </dialog>
+    </div>
+
+    <script>
+      function openCheck(dialog) {
+        if (dialog.open) {
+          console.log("Dialog open");
+          dialog.close();
+        } else {
+          console.log("Dialog not open");
+        }
+      }
+
+      // Dialog 1 code
+      const dialog1 = document.querySelector("#dialog1");
+      const openDialog = document.querySelector(".open-dialog1");
+      const closeDialog = document.querySelector(".close-dialog1");
+
+      openDialog.addEventListener("click", () => {
+        dialog1.showModal();
+      });
+      dialog1.addEventListener("keydown", (e) => {
+        if (e.key === "Escape") {
+          openCheck(dialog1);
+        }
+      });
+      // window.addEventListener("click", (e) => {
+      //   console.log(e.target);
+      //   if (e.target !== dialog1) {
+      //     dialog1.close();
+      //   }
+      // });
+      closeDialog.addEventListener("click", () => {
+        dialog1.close();
+      });
+
+      // Dialog 2
+      const dialog2 = document.querySelector("#dialog2");
+      const openDialog2 = document.querySelector(".open-dialog2");
+      const closeDialog2 = document.querySelector(".close-dialog2");
+
+      openDialog2.addEventListener("click", () => {
+        dialog2.showModal();
+      });
+      dialog2.addEventListener("keydown", (e) => {
+        if (e.key === "Escape") {
+          openCheck(dialog2);
+        }
+      });
+      // window.addEventListener("click", (e) => {
+      //   console.log(e.target);
+      //   if (e.target !== dialog2) {
+      //     dialog2.close();
+      //   }
+      // });
+      closeDialog2.addEventListener("click", () => {
+        dialog2.close();
+      });
+
+      // Dialog 3
+      const dialog3 = document.querySelector("#dialog3");
+      const openDialog3 = document.querySelector(".open-dialog3");
+      const closeDialog3 = document.querySelector(".close-dialog3");
+
+      openDialog3.addEventListener("click", () => {
+        dialog3.showModal();
+      });
+      dialog3.addEventListener("keydown", (e) => {
+        if (e.key === "Escape") {
+          openCheck(dialog3);
+        }
+      });
+      closeDialog3.addEventListener("click", () => {
+        dialog3.close();
+      });
+    </script>
+  </body>
+</html>
